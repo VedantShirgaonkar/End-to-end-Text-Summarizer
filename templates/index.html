@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Summarizer ✍️</title>
+    <link rel="stylesheet" href="{{ url_for('static', path='/css/style.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Text Summarizer</h1>
+            <p>Paste your text below and get a concise summary.</p>
+        </header>
+
+        <main>
+            <form action="/predict" method="post">
+                <div class="form-group">
+                    <label for="text">Your Text</label>
+                    <textarea name="text" id="text" rows="12" placeholder="Enter the text you want to summarize...">{{ original_text or '' }}</textarea>
+                </div>
+
+                <button type="submit" class="btn-summarize">Summarize →</button>
+            </form>
+
+            {% if summary or error %}
+            <div class="result-box">
+                <h2>Summary</h2>
+                {% if summary %}
+                    <p class="summary-content">{{ summary }}</p>
+                {% elif error %}
+                    <p class="error-content">An error occurred: {{ error }}</p>
+                {% endif %}
+            </div>
+            {% endif %}
+        </main>
+
+        <footer>
+            <p>Powered by FastAPI & Gemini</p>
+        </footer>
+    </div>
+</body>
+</html>
