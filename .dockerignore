@@ -1,0 +1,55 @@
+# Git / Version Control
+.git
+.gitignore
+.gitattributes
+
+# Python Environment & Caches
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.venv
+venv
+env
+*.egg-info
+pip-wheel-metadata/
+build/
+dist/
+
+# IDE & Editor Configuration
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Secrets & Environment Variables
+# IMPORTANT: Never copy secrets files into your image
+.env
+*.env
+
+# Testing Artifacts
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Operating System Files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# GitHub Actions workflows
+.github/
+
+# Project folders not needed in production
+artifacts/
+research/
+
+# Project setup and metadata files
+main.py
+params.yaml
+setup.py
+LICENSE
+README.md
